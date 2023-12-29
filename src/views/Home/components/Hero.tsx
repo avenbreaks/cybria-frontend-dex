@@ -75,7 +75,7 @@ const LogoWrapper = styled.div`
 // `
 
 const imagePath = '/images/home/logo/'
-const imageSrc = 'logo'
+const imageSrc = 'cybria'
 
 // const arrowsImage: CompositeImageProps = {
 //   path: '/images/home/logo/',
@@ -127,7 +127,7 @@ const Hero = () => {
           justifyContent="center"
         >
           <LogoWrapper>
-            <img src={`${imagePath}${imageSrc}.png`} srcSet={getSrcSet(imagePath, imageSrc)} alt={t('Logo')} />
+            <img src={`${imagePath}${imageSrc}.png`} srcSet={getSrcSet(imagePath, imageSrc)} alt={t('cybria')} />
           </LogoWrapper>
         </Flex>
       </Flex>
