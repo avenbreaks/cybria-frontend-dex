@@ -10,7 +10,7 @@ import { CommunityTag, CoreTag, DualTag, NoFeeTag } from 'components/Tags'
 
 import HarvestAction from './HarvestAction'
 import StakedAction from './StakedAction'
-import Apr, { AprProps } from '../Apr'
+import { AprProps } from '../Apr' // Remove Apr
 import Multiplier, { MultiplierProps } from '../Multiplier'
 import Liquidity, { LiquidityProps } from '../Liquidity'
 
@@ -142,7 +142,7 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
 
   const { t } = useTranslation()
   const isActive = farm.multiplier !== '0X'
-  const { quoteToken, token, dual, isTokenOnly, depositFee } = farm
+  const { quoteToken, token, dual } = farm
   const lpLabel = farm.lpSymbol && farm.lpSymbol.toUpperCase().replace('PANCAKE', '')
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAddress: quoteToken.address,
@@ -150,27 +150,36 @@ const ActionPanel: React.FunctionComponent<ActionPanelProps> = ({
   })
   const lpAddress = getAddress(farm.lpAddresses)
   const tokenA = getAddress(farm.tokenAddress)
-  const bsc = farm.isTokenOnly? getBscScanLink(tokenA, 'address') : getBscScanLink(lpAddress, 'address')
-  const info = farm.isTokenOnly ?  `https://pancakeswap.info/token/${tokenA}` : `https://pancakeswap.info/pool/${lpAddress}`
+  const bsc = farm.isTokenOnly ? getBscScanLink(tokenA, 'address') : getBscScanLink(lpAddress, 'address')
+  const info = farm.isTokenOnly
+    ? `https://pancakeswap.info/token/${tokenA}`
+    : `https://pancakeswap.info/pool/${lpAddress}`
   const depositFeeFetch = farm.depositFee
 
   return (
     <Container expanded={expanded}>
       <InfoContainer>
-       <Text>{t('Deposit Fee')} {depositFeeFetch/100}%</Text>
+        <Text>
+          {t('Deposit Fee')} {depositFeeFetch / 100}%
+        </Text>
         {isActive && (
           <StakeContainer>
-            <StyledLinkExternal href = { farm.isTokenOnly? `/swap?outputCurrency=${tokenA}`: `/add/${liquidityUrlPathParts}` }>
+            <StyledLinkExternal
+              href={farm.isTokenOnly ? `/swap?outputCurrency=${tokenA}` : `/add/${liquidityUrlPathParts}`}
+            >
               {t('Get %symbol%', { symbol: lpLabel })}
             </StyledLinkExternal>
           </StakeContainer>
         )}
         <StyledLinkExternal href={bsc}>{t('View Contract')}</StyledLinkExternal>
-        <StyledLinkExternal href={info}> {farm.isTokenOnly ? t('See Token Info') : t('See Pair Info')}</StyledLinkExternal>
+        <StyledLinkExternal href={info}>
+          {' '}
+          {farm.isTokenOnly ? t('See Token Info') : t('See Pair Info')}
+        </StyledLinkExternal>
         <TagsContainer>
           {farm.isCommunity ? <CommunityTag /> : <CoreTag />}
           {dual ? <DualTag /> : null}
-          {farm.depositFee === 0? <NoFeeTag /> : null}
+          {farm.depositFee === 0 ? <NoFeeTag /> : null}
         </TagsContainer>
       </InfoContainer>
       <ValueContainer>

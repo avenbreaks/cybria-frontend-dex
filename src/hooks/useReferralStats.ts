@@ -31,13 +31,12 @@ export const useReferrerCount = () => {
 
       const referralCount = await referrerContract.referralsCount(account)
       getReferrerCount(referralCount.toNumber())
-      
     }
 
     if (account) {
       fetchReferrerCount()
     }
-  }, [account,slowRefresh])
+  }, [account, slowRefresh])
 
   return referrerCount
 }
@@ -58,7 +57,7 @@ export const useReferralCommission = () => {
     if (account) {
       fetchComission()
     }
-  }, [account,slowRefresh])
+  }, [account, slowRefresh])
 
   return referralCommission
 }

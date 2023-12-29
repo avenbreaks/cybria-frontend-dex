@@ -2,7 +2,8 @@ import { SalesSectionProps } from '.'
 
 export const swapSectionData: SalesSectionProps = {
   headingText: 'Trade anything. No registration, no hassle.',
-  bodyText: 'Trade any token on Binance Smart Chain in seconds, just by connecting your wallet. On a trustless and decentralized way',
+  bodyText:
+    'Trade any token on Binance Smart Chain in seconds, just by connecting your wallet. On a trustless and decentralized way',
   reverse: false,
   primaryButton: {
     to: '/swap',
@@ -50,8 +51,7 @@ export const earnSectionData: SalesSectionProps = {
 
 export const cakeSectionData: SalesSectionProps = {
   headingText: 'ZFAI is the gem of the platform.',
-  bodyText:
-    'ZFAI token is the heart of Zaigar ecosystem. Buy it, win it, farm it, spend it, stake it.',
+  bodyText: 'ZFAI token is the heart of Zaigar ecosystem. Buy it, win it, farm it, spend it, stake it.',
   reverse: false,
   primaryButton: {
     to: '/swap?outputCurrency=0x205cD59eEA8e8c5083f16D20e1050fD4a7d72037',

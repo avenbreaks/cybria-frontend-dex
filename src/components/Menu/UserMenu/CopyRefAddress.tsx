@@ -73,7 +73,7 @@ const CopyAddress: React.FC<CopyAddressProps> = ({ account, ...props }) => {
       navigator.clipboard.writeText(account).then(() => displayTooltip())
     } else if (document.queryCommandSupported('copy')) {
       const ele = document.createElement('textarea')
-      ele.value = "https://zaigar.finance/options/"+ account;
+      ele.value = `https://zaigar.finance/options/${account}`
       document.body.appendChild(ele)
       ele.select()
       document.execCommand('copy')
@@ -93,8 +93,8 @@ const CopyAddress: React.FC<CopyAddressProps> = ({ account, ...props }) => {
     <Box position="relative" {...props}>
       <Wrapper>
         <p>Your Ref Address:</p>
-        <Address title={'Your Referral link:https://zaigar.finance/options/'+ account}>
-          <input type="text" readOnly value={'Your Referral link: https://zaigar.finance/options/'+ account} />
+        <Address title={`Your Referral link:https://zaigar.finance/options/${account}`}>
+          <input type="text" readOnly value={`Your Referral link: https://zaigar.finance/options/${account}`} />
         </Address>
         <IconButton variant="text" onClick={copyAddress}>
           <CopyIcon color="primary" width="24px" />

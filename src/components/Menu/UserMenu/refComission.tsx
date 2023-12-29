@@ -1,5 +1,5 @@
 import React from 'react' // Remove useState
-import { Box, Flex, FlexProps,Text} from '@zaigar-finance/uikit' // Remove CopyIcon
+import { Box, Flex, FlexProps, Text } from '@zaigar-finance/uikit' // Remove CopyIcon
 import styled from 'styled-components'
 // import BigNumber from 'bignumber.js' Disable
 
@@ -33,16 +33,16 @@ const Commission = styled.div`
       outline: 0;
     }
   }
-
-
 `
 
 const RefCommission: React.FC<ReferralComissionProps> = ({ totalCommission, ...props }) => {
   return (
     <Box position="relative" {...props}>
       <Wrapper>
-        <Text color="secondary" text-size="1px" ml="3px" mr="30px">Earned(ZAIF): </Text>
-        <Commission title='Total Ref Commission:' >
+        <Text color="secondary" text-size="1px" ml="3px" mr="30px">
+          Earned(ZAIF):{' '}
+        </Text>
+        <Commission title="Total Ref Commission:">
           <input type="text" readOnly value={totalCommission} />
         </Commission>
       </Wrapper>

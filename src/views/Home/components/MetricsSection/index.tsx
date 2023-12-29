@@ -1,4 +1,4 @@
-import React, { useState }  from 'react'
+import React, { useState } from 'react'
 import { Heading, Flex, Text, Skeleton, ChartIcon } from '@zaigar-finance/uikit' // Remove CommunityIcon, SwapIcon
 import { useTranslation } from 'contexts/Localization'
 // import { useSelector } from 'react-redux'
@@ -18,37 +18,30 @@ import IconCard, { IconCardData } from '../IconCard'
 import StatCardContent from './StatCardContent'
 // import GradientLogo from '../GradientLogoSvg'
 
-
 // Values fetched from bitQuery effective 6/8/21
 // const txCount = 38392695
 // const addressCount = 2319694
 
 const Stats = () => {
-
- 
   const cakeValue = usePriceCakeBusd()
   const getPrice = cakeValue.toNumber()
   const { t } = useTranslation()
-  const data = useTotalValue();  // useGetStats()
+  const data = useTotalValue() // useGetStats()
   const { theme } = useTheme()
- 
-  const [tvlStringText, setTvl] = useState("0");
+
+  const [tvlStringText, setTvl] = useState('0')
 
   PoolsTotalStaking().then((result) => {
-   
     const poolStakedValue = result.times(getPrice)
 
-    const tvl = data.plus(poolStakedValue);
-    const finalTvl = tvl.toNumber();
-  
+    const tvl = data.plus(poolStakedValue)
+    const finalTvl = tvl.toNumber()
+
     const tvlString = tvl ? formatLocalisedCompactNumber(finalTvl) : '0'
 
-
     setTvl(tvlString)
-
   })
 
- 
   // const trades = formatLocalisedCompactNumber(txCount)
   // const users = formatLocalisedCompactNumber(addressCount)
 

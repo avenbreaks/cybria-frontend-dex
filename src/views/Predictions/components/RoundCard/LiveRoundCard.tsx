@@ -61,8 +61,6 @@ const LiveRoundCard: React.FC<LiveRoundCardProps> = ({
     placement: 'bottom',
   })
 
-
-
   const updateRef = useRef(update)
 
   useEffect(() => {

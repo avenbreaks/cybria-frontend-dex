@@ -8,7 +8,7 @@ import Balance from 'components/Balance'
 import { useTranslation } from 'contexts/Localization'
 import { useAppDispatch } from 'state'
 import { fetchFarmUserDataAsync } from 'state/farms'
-import { useLpTokenPrice,useBusdPriceFromPid } from 'state/farms/hooks'
+import { useLpTokenPrice, useBusdPriceFromPid } from 'state/farms/hooks'
 import { getBalanceAmount, getBalanceNumber } from 'utils/formatBalance'
 import DepositModal from '../DepositModal'
 import WithdrawModal from '../WithdrawModal'
@@ -49,7 +49,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
   addLiquidityUrl,
   cakePrice,
   lpLabel,
-  depositFeeBP
+  depositFeeBP,
 }) => {
   const { t } = useTranslation()
   const { onStake } = useStakeFarms(pid)
@@ -90,7 +90,7 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
       depositFeeBP={depositFeeBP}
       multiplier={multiplier}
       isTokenOnly={isTokenOnly}
-      lpPrice={isTokenOnly? tokenPrice : lpPrice}
+      lpPrice={isTokenOnly ? tokenPrice : lpPrice}
       lpLabel={lpLabel}
       apr={apr}
       displayApr={displayApr}
@@ -130,29 +130,29 @@ const StakeAction: React.FC<FarmCardActionsProps> = ({
     <Flex justifyContent="space-between" alignItems="center">
       <Flex flexDirection="column" alignItems="flex-start">
         <Heading color={stakedBalance.eq(0) ? 'textDisabled' : 'text'}>{displayBalance()}</Heading>
-        {isTokenOnly?
-        stakedBalance.gt(0) && tokenPrice.gt(0) && (
-          <Balance
-            fontSize="12px"
-            color="textSubtle"
-            decimals={2}
-            value={getBalanceNumber(tokenPrice.times(stakedBalance))}
-            unit=" USD"
-            prefix="~"
-          />
-        )
-        :
-        stakedBalance.gt(0) && lpPrice.gt(0) && (
-          <Balance
-            fontSize="12px"
-            color="textSubtle"
-            decimals={2}
-            value={getBalanceNumber(lpPrice.times(stakedBalance))}
-            unit=" USD"
-            prefix="~"
-          />
-        )
-        }
+        {isTokenOnly
+          ? stakedBalance.gt(0) &&
+            tokenPrice.gt(0) && (
+              <Balance
+                fontSize="12px"
+                color="textSubtle"
+                decimals={2}
+                value={getBalanceNumber(tokenPrice.times(stakedBalance))}
+                unit=" USD"
+                prefix="~"
+              />
+            )
+          : stakedBalance.gt(0) &&
+            lpPrice.gt(0) && (
+              <Balance
+                fontSize="12px"
+                color="textSubtle"
+                decimals={2}
+                value={getBalanceNumber(lpPrice.times(stakedBalance))}
+                unit=" USD"
+                prefix="~"
+              />
+            )}
       </Flex>
       {renderStakingButtons()}
     </Flex>

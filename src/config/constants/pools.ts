@@ -16,7 +16,7 @@ const pools: PoolConfig[] = [
     sortOrder: 1,
     isFinished: false,
   },
- /* {
+  /* {
     sousId: 1,
     stakingToken: tokens.zaif,
     earningToken: tokens.zfai,

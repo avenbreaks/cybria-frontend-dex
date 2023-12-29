@@ -11,18 +11,27 @@ const StyledNotFound = styled.div`
   flex-direction: column;
   height: calc(100vh - 64px);
   justify-content: center;
-  min-width: 100%
+  min-width: 100%;
 `
 
 const Airdrop = () => {
   // const { t } = useTranslation()
 
-  return (  
+  return (
     <Page>
       <StyledNotFound>
         <LogoIcon />
-        <Heading size="xxl" text-align="center" ml="5px">ZFAI AIRDROP RAFFLE</Heading>
-        <iframe height="1000" width="100%" title="airdrop" src="https://gleam.io/0lX4g/zaigar-finance" frameBorder="0" frame-src="https://gleam.io/0lX4g/zaigar-finance" />
+        <Heading size="xxl" text-align="center" ml="5px">
+          ZFAI AIRDROP RAFFLE
+        </Heading>
+        <iframe
+          height="1000"
+          width="100%"
+          title="airdrop"
+          src="https://gleam.io/0lX4g/zaigar-finance"
+          frameBorder="0"
+          frame-src="https://gleam.io/0lX4g/zaigar-finance"
+        />
       </StyledNotFound>
     </Page>
   )

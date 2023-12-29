@@ -15,7 +15,7 @@ import {
   Box,
   AutoRenewIcon,
 } from '@zaigar-finance/uikit'
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies'
+// import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies'
 import Cookies from 'js-cookie'
 import { ethers } from 'ethers'
 import { parseUnits } from 'ethers/lib/utils'
@@ -156,12 +156,12 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
   const handleEnterPosition = async () => {
     const betMethod = position === BetPosition.BULL ? 'betBull' : 'betBear'
 
-       // Get Referral Address
-       const getreferrer = Cookies.get("ReferAddress");
-       const referrerAddress = getreferrer.replace(/"/g,"");
+    // Get Referral Address
+    const getreferrer = Cookies.get('ReferAddress')
+    const referrerAddress = getreferrer.replace(/"/g, '')
 
     try {
-      const tx = await predictionsContract[betMethod](epoch,referrerAddress,{ value: valueAsBn.toString(), gasPrice })
+      const tx = await predictionsContract[betMethod](epoch, referrerAddress, { value: valueAsBn.toString(), gasPrice })
       setIsTxPending(true)
       const receipt = await tx.wait()
       onSuccess(valueAsBn.toString(), receipt.transactionHash as string)

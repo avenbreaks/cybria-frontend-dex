@@ -72,7 +72,7 @@ const Home: React.FC = () => {
           mt={[account ? '0' : '-16px', null, null, account ? '0' : '-48px']}
           pb="24px"
         >
-         <StakeBanner /> 
+          <StakeBanner />
         </Flex>
         <Hero />
       </StyledHeroSection>
@@ -116,14 +116,14 @@ const Home: React.FC = () => {
         hasCurvedDivider={false}
       >
         <OuterWedgeWrapper>
-        <InnerWedgeWrapper top fill={theme.isDark ? '#09070C' : '#FFFFFF'}>
+          <InnerWedgeWrapper top fill={theme.isDark ? '#09070C' : '#FFFFFF'}>
             <WedgeTopRight />
           </InnerWedgeWrapper>
         </OuterWedgeWrapper>
         <SalesSection {...earnSectionData} />
         <FarmsPoolsRow />
       </PageSection>
-     {/* <PageSection
+      {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
         background={
           theme.isDark
@@ -147,10 +147,10 @@ const Home: React.FC = () => {
       >
         <SalesSection {...cakeSectionData} />
         <CakeDataRow />
-       {/* <SalesSection {...zaifSectionData} />
-        <ZaifDataRow /> */} 
+        {/* <SalesSection {...zaifSectionData} />
+        <ZaifDataRow /> */}
       </PageSection>
-    {/* <PageSection
+      {/* <PageSection
         innerProps={{ style: HomeSectionContainerStyles }}
         background="linear-gradient(180deg, #7645D9 0%, #5121B1 100%)"
         index={2}

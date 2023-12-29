@@ -15,7 +15,7 @@ const StyledSubheading = styled(Heading)`
 
 const StyledHeading = styled(Heading)`
   color: #ffffff;
-  background: -webkit-linear-gradient(#0ABAB5 0%, #0000 100%);
+  background: -webkit-linear-gradient(#0abab5 0%, #0000 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-stroke: 6px transparent;
@@ -79,21 +79,21 @@ const NftBanner = () => {
 
   return (
     <Wrapper>
-    <Inner>
-      <LeftWrapper>
-        <StyledSubheading>{t('Staking Update!')}</StyledSubheading>
-        <StyledHeading scale="xl">{t('Stake your ZFAIs and earn up to 198% APR clicking here.')}</StyledHeading>
-        <Flex margin-bottom="10px">
-        <Link href="https://zaigar.finance/vaults">
+      <Inner>
+        <LeftWrapper>
+          <StyledSubheading>{t('Staking Update!')}</StyledSubheading>
+          <StyledHeading scale="xl">{t('Stake your ZFAIs and earn up to 198% APR clicking here.')}</StyledHeading>
+          <Flex margin-bottom="10px">
+            <Link href="https://zaigar.finance/vaults">
               <ArrowForwardIcon ml="3px" color="contrast" />
               <Text color="contrast" bold fontSize="20px" ml="6px" mr="4px">
                 {t('Enter Page')}
-              </Text>         
-          </Link>
-        </Flex>
-      </LeftWrapper>
-    </Inner>
-  </Wrapper>
+              </Text>
+            </Link>
+          </Flex>
+        </LeftWrapper>
+      </Inner>
+    </Wrapper>
   )
 }
 

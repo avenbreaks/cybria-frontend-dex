@@ -8,14 +8,13 @@ import {
   InjectedModalProps,
   Button,
   AutoRenewIcon,
-  TrophyGoldIcon,
   Text,
   Flex,
   Heading,
   Box,
   LinkExternal,
   ModalCloseButton,
-} from '@zaigar-finance/uikit'
+} from '@zaigar-finance/uikit' // remove TrophyGoldIcon
 import { useWeb3React } from '@web3-react/core'
 import { getBscScanLink } from 'utils'
 import { useAppDispatch } from 'state'

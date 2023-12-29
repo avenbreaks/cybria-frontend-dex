@@ -38,8 +38,8 @@ const BetDetails: React.FC<BetDetailsProps> = ({ bet, result }) => {
       {result !== Result.LIVE && <BetResult bet={bet} result={result} />}
       <Heading mb="8px">{t('Round History')}</Heading>
       <RoundResultHistory round={bet.round} mb="24px">
-        <PayoutRow positionLabel={t('Up')} multiplier={bullMultiplier} amount={bullAmount - bullAmount*5/100 } />
-        <PayoutRow positionLabel={t('Down')} multiplier={bearMultiplier} amount={bearAmount - bearAmount*5/100} />
+        <PayoutRow positionLabel={t('Up')} multiplier={bullMultiplier} amount={bullAmount - (bullAmount * 5) / 100} />
+        <PayoutRow positionLabel={t('Down')} multiplier={bearMultiplier} amount={bearAmount - (bearAmount * 5) / 100} />
       </RoundResultHistory>
       <Flex alignItems="center" justifyContent="space-between" mb="8px">
         <Text>{t('Opening Block')}</Text>

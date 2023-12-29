@@ -13,7 +13,7 @@ export const getMultiplier = (total: number, amount: number) => {
   if (total === 0 || amount === 0) {
     return 0
   }
-  
+
   return total / amount
 }
 
@@ -21,11 +21,11 @@ export const getMultiplierv4 = (total: number, amount: number) => {
   if (total === 0 || amount === 0) {
     return 0
   }
-  
-  const finalaccount = total / amount
-  const subtractFee = finalaccount*5/100
 
-  return finalaccount - subtractFee 
+  const finalaccount = total / amount
+  const subtractFee = (finalaccount * 5) / 100
+
+  return finalaccount - subtractFee
 }
 
 /**

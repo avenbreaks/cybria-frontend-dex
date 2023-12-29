@@ -157,14 +157,11 @@ export default function CurrencyInputPanel({
             </Flex>
           </CurrencySelectButton>
         </InputRow>
-        {
-        depositFeeBP > 0 ?
+        {depositFeeBP > 0 ? (
           <LabelRow>
-            {t('Deposit Fee')}: {new BigNumber(value || 0).times(depositFeeBP/10000).toString()} {currency.symbol}
+            {t('Deposit Fee')}: {new BigNumber(value || 0).times(depositFeeBP / 10000).toString()} {currency.symbol}
           </LabelRow>
-          :
-          null
-      }
+        ) : null}
       </Container>
     </InputPanel>
   )

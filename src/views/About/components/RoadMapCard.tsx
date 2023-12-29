@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import { Heading, Card, CardBody, Button } from '@zaigar-finance/uikit' // Remove useModal
 import { useTranslation } from 'contexts/Localization'
 
-
-
 const StyledRoadmapCard = styled(Card)`
   min-height: 376px;
 `
@@ -32,7 +30,6 @@ const CardImage = styled.img`
 // `
 
 const RoadmapCard = () => {
-
   const { t } = useTranslation()
 
   return (
@@ -42,12 +39,12 @@ const RoadmapCard = () => {
           {t('RoadMap')}
         </Heading>
         <Block>
-         <CardImage src="/images/zai/roadmap.jpg" alt="Roadmap image" width={2000} height={2000} />
+          <CardImage src="/images/zai/roadmap.jpg" alt="Roadmap image" width={2000} height={2000} />
         </Block>
         <Button>
-        <Block>
-        <a href="https://docs.zaigar.finance/roadmap">Detail Roadmap Cybria</a>
-        </Block>
+          <Block>
+            <a href="https://docs.zaigar.finance/roadmap">Detail Roadmap Cybria</a>
+          </Block>
         </Button>
       </CardBody>
     </StyledRoadmapCard>

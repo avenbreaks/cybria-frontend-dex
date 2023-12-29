@@ -18,7 +18,7 @@ const SetCol = styled.div`
 const HelpButtonWrapper = styled.div`
   order: 1;
   margin: 0 8px 0 0;
-  
+
   ${({ theme }) => theme.mediaQueries.lg} {
     order: 2;
     margin: 0 0 0 8px;
@@ -27,10 +27,10 @@ const HelpButtonWrapper = styled.div`
 
 const TimerLabelWrapper = styled.div`
   order: 2;
-    @media screen and (max-width: 360px){
-      width:120px;
-      margin-right:-15px; 
-    }
+  @media screen and (max-width: 360px) {
+    width: 120px;
+    margin-right: -15px;
+  }
   ${({ theme }) => theme.mediaQueries.lg} {
     order: 1;
   }

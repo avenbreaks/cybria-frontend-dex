@@ -6,7 +6,7 @@ import { usePredictionsContract } from 'hooks/useContract' // Remove useERC20
 import { ethersToBigNumber } from 'utils/bigNumber'
 import { BnbUsdtPairTokenIcon, Box, Flex, PocketWatchIcon, Text, CrownIcon } from '@zaigar-finance/uikit'
 import { ROUND_BUFFER } from 'state/predictions/config'
-import { formatBigNumberToFixed,formatBigNumber } from 'utils/formatBalance'
+import { formatBigNumberToFixed, formatBigNumber } from 'utils/formatBalance'
 import { useGetCurrentRoundLockTimestamp, useGetLastOraclePrice } from 'state/predictions/hooks'
 import { useTranslation } from 'contexts/Localization'
 import { formatRoundTime } from '../helpers'
@@ -109,7 +109,7 @@ const Label = styled(Flex)<{ dir: 'left' | 'right' }>`
   flex-direction: column;
   overflow: initial;
   padding: ${({ dir }) => (dir === 'right' ? '0 28px 0 8px' : '0 8px 0 24px')};
-  
+
   ${({ theme }) => theme.mediaQueries.lg} {
     align-items: center;
     border-radius: ${({ theme }) => theme.radii.card};
@@ -129,7 +129,6 @@ export const PricePairLabel: React.FC = () => {
     duration: 1,
     decimals: 4,
   })
-
 
   const updateRef = useRef(update)
 
@@ -152,17 +151,16 @@ export const PricePairLabel: React.FC = () => {
   )
 }
 
-export const JackpotLabel: React.FC = () =>  {
-
+export const JackpotLabel: React.FC = () => {
   const predictionContract = usePredictionsContract()
-  const [jackpotAmount, getJackpot] = useState("0");
-  const [jackpotLocked, getJackpotLock] = useState(0);
+  const [jackpotAmount, getJackpot] = useState('0')
+  const [jackpotLocked, getJackpotLock] = useState(0)
 
-  const jackpotAccumulated = async () => { 
+  const jackpotAccumulated = async () => {
     try {
       const response = await predictionContract.getJackpotAmount()
       const currentJackpot = response
-      const formatJackpot = formatBigNumber(currentJackpot,1)
+      const formatJackpot = formatBigNumber(currentJackpot, 1)
       getJackpot(formatJackpot.toString())
       return currentJackpot.gt(0)
     } catch (error) {
@@ -171,47 +169,54 @@ export const JackpotLabel: React.FC = () =>  {
     }
   }
 
-   const jackpotLockedAt = async () => { 
+  const jackpotLockedAt = async () => {
     try {
       const response = await predictionContract.getJackpotLockBlock()
       const currentLockJackpot = ethersToBigNumber(response)
-      if(currentLockJackpot.gt(0)){
+      if (currentLockJackpot.gt(0)) {
         getJackpotLock(currentLockJackpot.toNumber() + 200480)
-      }else{
-        getJackpotLock(currentLockJackpot.toNumber())  
+      } else {
+        getJackpotLock(currentLockJackpot.toNumber())
       }
       return currentLockJackpot.gt(0)
     } catch (error) {
       console.log(error)
       return false
     }
-  } 
+  }
 
-  jackpotAccumulated();
+  jackpotAccumulated()
   jackpotLockedAt()
 
-
   return (
-    <><Box pl="25px" pt="15px" position="absolute" display="flex">
-      <Token2 left={0}>
-        <CrownIcon />
-      </Token2>
-      <Label dir="left">
-        <Title bold textTransform="uppercase" mr="15px">
-          POT
-        </Title>
-        <Price fontSize="12px" mr="1px"> {`${jackpotAmount}`} ZAIF</Price>
-      </Label>
-    </Box><Box pl="228px" pt="16px" position="absolute" display="flex">
+    <>
+      <Box pl="25px" pt="15px" position="absolute" display="flex">
+        <Token2 left={0}>
+          <CrownIcon />
+        </Token2>
         <Label dir="left">
-        <Text fontSize="13px" bold mr="1px">
-          pays block
-        </Text>
-          <Text ml="5px" fontSize="10px"> {`${jackpotLocked}`}</Text>
+          <Title bold textTransform="uppercase" mr="15px">
+            POT
+          </Title>
+          <Price fontSize="12px" mr="1px">
+            {' '}
+            {`${jackpotAmount}`} ZAIF
+          </Price>
         </Label>
-      </Box></>
+      </Box>
+      <Box pl="228px" pt="16px" position="absolute" display="flex">
+        <Label dir="left">
+          <Text fontSize="13px" bold mr="1px">
+            pays block
+          </Text>
+          <Text ml="5px" fontSize="10px">
+            {' '}
+            {`${jackpotLocked}`}
+          </Text>
+        </Label>
+      </Box>
+    </>
   )
-
 }
 
 interface TimerLabelProps {

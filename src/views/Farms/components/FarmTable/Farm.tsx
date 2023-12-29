@@ -5,7 +5,7 @@ import { useTranslation } from 'contexts/Localization'
 import { Text } from '@zaigar-finance/uikit'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { Token } from 'config/constants/types'
-import { TokenPairImage,TokenImage } from 'components/TokenImage'
+import { TokenPairImage, TokenImage } from 'components/TokenImage'
 
 export interface FarmProps {
   label: string
@@ -35,7 +35,7 @@ const TokenWrapper = styled.div`
   }
 `
 
-const Farm: React.FunctionComponent<FarmProps> = ({ token, quoteToken, label, pid, isTokenOnly,depositFee }) => {
+const Farm: React.FunctionComponent<FarmProps> = ({ token, quoteToken, label, pid, isTokenOnly }) => {
   const { stakedBalance } = useFarmUser(pid)
   const { t } = useTranslation()
   const rawStakedBalance = getBalanceNumber(stakedBalance)
@@ -55,12 +55,11 @@ const Farm: React.FunctionComponent<FarmProps> = ({ token, quoteToken, label, pi
   return (
     <Container>
       <TokenWrapper>
-      {
-      isTokenOnly ?
-      <TokenImage token={token} width={64} height={64} />
-      :
-      <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={64} height={64} />
-      }
+        {isTokenOnly ? (
+          <TokenImage token={token} width={64} height={64} />
+        ) : (
+          <TokenPairImage variant="inverted" primaryToken={token} secondaryToken={quoteToken} width={64} height={64} />
+        )}
       </TokenWrapper>
       <div>
         {handleRenderFarming()}

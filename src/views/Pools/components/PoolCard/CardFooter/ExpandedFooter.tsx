@@ -38,7 +38,7 @@ const ExpandedWrapper = styled(Flex)`
   }
 `
 
-  const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
+const ExpandedFooter: React.FC<ExpandedFooterProps> = ({ pool, account }) => {
   const { t } = useTranslation()
   const { currentBlock } = useBlock()
   const {
@@ -81,7 +81,7 @@ const ExpandedWrapper = styled(Flex)`
       return getBalanceNumber(manualCakeTotalMinusAutoVault, stakingToken.decimals)
     }
     return getBalanceNumber(totalStaked, stakingToken.decimals)
-  } 
+  }
 
   const {
     targetRef: totalStakedTargetRef,

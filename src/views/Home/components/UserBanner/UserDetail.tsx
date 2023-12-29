@@ -53,11 +53,7 @@ const UserDetail = () => {
 
   const getMobileHeading = () => {
     if (profile) {
-      return (
-        <Heading mb="18px" >
-          {t('Hi', { userName: profile.username })}
-        </Heading>
-      )
+      return <Heading mb="18px">{t('Hi', { userName: profile.username })}</Heading>
     }
     if (isLoading && !profile) {
       return <Skeleton width={120} height={20} mt="2px" mb="18px" />

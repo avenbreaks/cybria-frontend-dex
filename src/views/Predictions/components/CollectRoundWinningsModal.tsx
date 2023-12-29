@@ -23,7 +23,7 @@ import { usePriceZaifBusd } from 'state/farms/hooks'
 import { fetchClaimableStatuses } from 'state/predictions'
 import { useTranslation } from 'contexts/Localization'
 import useToast from 'hooks/useToast'
-import { usePredictionsContract,useReferral } from 'hooks/useContract'
+import { usePredictionsContract, useReferral } from 'hooks/useContract'
 
 interface CollectRoundWinningsModalProps extends InjectedModalProps {
   payout: string
@@ -52,7 +52,7 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
   onSuccess,
 }) => {
   const [isPendingTx, setIsPendingTx] = useState(false)
-  const [isReferredAddress, setReferralAddress] = useState("0x")
+  const [isReferredAddress, setReferralAddress] = useState('0x')
   const { account } = useWeb3React()
   const { t } = useTranslation()
   const { toastSuccess, toastError } = useToast()
@@ -61,11 +61,10 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
   // const bnbBusdPrice = usePriceBnbBusd()
   const zaifBusdPrice = usePriceZaifBusd()
   const dispatch = useAppDispatch()
- 
+
   // Convert payout to number for compatibility
   const payoutAsFloat = parseFloat(payout)
   const betAmountAsFloat = parseFloat(betAmount)
-
 
   const handleClick = async () => {
     try {
@@ -93,17 +92,18 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
           )}
         </Box>,
       )
-    } catch (error) {
-      toastError(
-        t('Error'),
-        error?.data?.message || t('Please try again. Confirm the transaction and make sure you are paying enough gas!'),
-      )
+    } catch (error: any) {
+      if (error && error.data && typeof error.data.message === 'string') {
+        toastError(t('Error'), error.data.message)
+      } else {
+        toastError(t('Error'), t('Please try again. Confirm the transaction and make sure you are paying enough gas!'))
+      }
     } finally {
       setIsPendingTx(false)
     }
   }
 
-  const getReferral = async () => { 
+  const getReferral = async () => {
     try {
       const response = await referralContract.getReferrer(account)
       setReferralAddress(response)
@@ -113,12 +113,14 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
       return false
     }
   }
-  getReferral();
+  getReferral()
   // Get Referral Address
-  const getreferrer = Cookies.get("ReferAddress");
-  const referrerAddress = getreferrer.replace(/"/g,"");
+  const getreferrer = Cookies.get('ReferAddress')
+  const referrerAddress = getreferrer.replace(/"/g, '')
 
-  const hasReferred = isReferredAddress !== "0x0000000000000000000000000000000000000000" || referrerAddress !== "0x0000000000000000000000000000000000000000";
+  const hasReferred =
+    isReferredAddress !== '0x0000000000000000000000000000000000000000' ||
+    referrerAddress !== '0x0000000000000000000000000000000000000000'
   return (
     <Modal minWidth="288px" position="relative" mt="124px">
       <PrizeDecoration>
@@ -147,12 +149,18 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
             <Text fontSize="12px" color="textSubtle">
               {`~$${zaifBusdPrice.times(payoutAsFloat).toFormat(2)}`}
             </Text>
-            <Text fontSize="10px" color="textSubtle"> Payouts showing here are not accounting 2% fees from (Pot/Referral) and Zaif transfer Fees (5%)</Text>
+            <Text fontSize="10px" color="textSubtle">
+              {' '}
+              Payouts showing here are not accounting 2% fees from (Pot/Referral) and Zaif transfer Fees (5%)
+            </Text>
           </Box>
         </Flex>
         {hasReferred && (
-            <Text fontSize="12px" color="secondary">You are referred by: {referrerAddress !== "0x0000000000000000000000000000000000000000" ? referrerAddress : isReferredAddress}</Text>
-           )}
+          <Text fontSize="12px" color="secondary">
+            You are referred by:{' '}
+            {referrerAddress !== '0x0000000000000000000000000000000000000000' ? referrerAddress : isReferredAddress}
+          </Text>
+        )}
         <Button
           width="100%"
           mb="8px"

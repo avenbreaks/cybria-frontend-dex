@@ -59,7 +59,7 @@ export const getMultiplierv3 = (total: ethers.BigNumber, amount: ethers.BigNumbe
   if (total.eq(0) || amount.eq(0)) {
     return ethers.FixedNumber.from(0)
   }
- 
+
   const rewardAmountFixed = ethers.FixedNumber.from(total)
   const multiplierAmountFixed = ethers.FixedNumber.from(amount)
 
@@ -67,7 +67,6 @@ export const getMultiplierv3 = (total: ethers.BigNumber, amount: ethers.BigNumbe
   const subtractFee = finalaccount.mulUnsafe(ethers.FixedNumber.from(5)).divUnsafe(ethers.FixedNumber.from(100))
 
   return finalaccount.subUnsafe(subtractFee)
-
 }
 
 export const getPayoutv2 = (ledger: NodeLedger, round: NodeRound) => {
@@ -81,10 +80,9 @@ export const getPayoutv2 = (ledger: NodeLedger, round: NodeRound) => {
   const multiplier = getMultiplierv2(rewardAmount, position === BetPosition.BULL ? bullAmount : bearAmount)
 
   return amountFixed.mulUnsafe(multiplier)
-
 }
 
-export const getNetPayoutv2 = (ledger: NodeLedger, round: NodeRound, rewardRate = 1) => {
+export const getNetPayoutv2 = (ledger: NodeLedger, round: NodeRound) => {
   if (!ledger || !round) {
     return ethers.FixedNumber.from(0)
   }

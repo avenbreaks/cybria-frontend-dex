@@ -15,7 +15,7 @@ interface WarningTokenList {
 const SwapWarningTokens = <WarningTokenList>{
   safemoon,
   bondly,
-  zaif
+  zaif,
 }
 
 export default SwapWarningTokens

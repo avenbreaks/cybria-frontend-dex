@@ -3,7 +3,7 @@ import { Card, CardBody, Text, WaitIcon } from '@zaigar-finance/uikit'
 import { useTranslation } from 'contexts/Localization'
 import { NodeRound, BetPosition } from 'state/types'
 import useTheme from 'hooks/useTheme'
-import { useGetIntervalSeconds,useGetCurrentRoundLockTimestamp } from 'state/predictions/hooks'
+import { useGetIntervalSeconds } from 'state/predictions/hooks' // Remove useGetCurrentRoundLockTimestamp
 import { ROUND_BUFFER } from 'state/predictions/config'
 import { formatRoundTime } from '../../helpers'
 import useCountdown from '../../hooks/useCountdown'
@@ -16,8 +16,8 @@ interface SoonRoundCardProps {
 }
 
 const SoonRoundCard: React.FC<SoonRoundCardProps> = ({ round }) => {
-  const intervalSeconds = useGetIntervalSeconds()
-  const currentRoundLockTimestamp = useGetCurrentRoundLockTimestamp()
+  // const intervalSeconds = useGetIntervalSeconds()
+  // const currentRoundLockTimestamp = useGetCurrentRoundLockTimestamp()
   // const { secondsRemaining } = useCountdown(currentRoundLockTimestamp + ROUND_BUFFER)
   const { secondsRemaining } = useCountdown(round.startTimestamp + useGetIntervalSeconds() + ROUND_BUFFER - 250)
   const countdown = formatRoundTime(secondsRemaining)

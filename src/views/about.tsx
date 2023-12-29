@@ -24,7 +24,7 @@ const Hero = styled.div`
     background-image: url('/images/zai/3.svg');
     background-position: center;
     height: 87px;
-    padding-top:160px;
+    padding-top: 160px;
   }
 `
 
@@ -58,7 +58,11 @@ const About: React.FC = () => {
   return (
     <Page>
       <Hero />
-        <Text>{t('Zaigar is a cryptocurrency rewards marketing company that has been in the market for over 3 years and has more than 30,000 users around the world, having already provided services to large companies in this new economy. With the aim of always continuing to support the development of the cryptocurrency industry, we are now officially launching our DeFi (Decentralized Finance) platform, Zaigar Finance, implemented within the Binance Smart Chain (BSC) network. A simple, fast, and secure platform that allows all members of our community to carry out operations with cryptocurrencies in an extremely easy and uncomplicated way. Furthermore, by adopting well-known strategies in the DeFi universe, it has an economic model capable of generating rewards in crypto assets through Farming and Staking.')}</Text>     
+      <Text>
+        {t(
+          'Zaigar is a cryptocurrency rewards marketing company that has been in the market for over 3 years and has more than 30,000 users around the world, having already provided services to large companies in this new economy. With the aim of always continuing to support the development of the cryptocurrency industry, we are now officially launching our DeFi (Decentralized Finance) platform, Zaigar Finance, implemented within the Binance Smart Chain (BSC) network. A simple, fast, and secure platform that allows all members of our community to carry out operations with cryptocurrencies in an extremely easy and uncomplicated way. Furthermore, by adopting well-known strategies in the DeFi universe, it has an economic model capable of generating rewards in crypto assets through Farming and Staking.',
+        )}
+      </Text>
       <div>
         <Cards min-width="100%">
           <RoadMapCard min-width="100%" />

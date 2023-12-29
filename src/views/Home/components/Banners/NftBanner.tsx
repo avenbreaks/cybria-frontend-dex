@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Flex, Button, ArrowForwardIcon, Link, Heading } from '@zaigar-finance/uikit'
+import { Text, Flex, ArrowForwardIcon, Link, Heading } from '@zaigar-finance/uikit' // Remove Button
 import { useTranslation } from 'contexts/Localization'
 
 const StyledSubheading = styled(Heading)`
@@ -15,7 +15,7 @@ const StyledSubheading = styled(Heading)`
 
 const StyledHeading = styled(Heading)`
   color: #ffffff;
-  background: -webkit-linear-gradient(#0ABAB5 0%, #0000 100%);
+  background: -webkit-linear-gradient(#0abab5 0%, #0000 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-stroke: 6px transparent;
@@ -26,7 +26,7 @@ const StyledHeading = styled(Heading)`
 const Wrapper = styled.div`
   border-radius: 15px;
   width: 100%;
-  background-image: linear-gradient(#FF4F4B, #0000);
+  background-image: linear-gradient(#ff4f4b, #0000);
   max-height: max-content;
   overflow: hidden;
 `
@@ -79,24 +79,26 @@ const NftBanner = () => {
 
   return (
     <Wrapper>
-    <Inner>
-      <LeftWrapper>
-        <StyledSubheading>{t('New Launch!')}</StyledSubheading>
-        <StyledHeading scale="xl">{t('Zaigar Warriors NFTs Airdrop Phase is ON! mint on DAPP clicking here.')}</StyledHeading>
-        <Flex margin-bottom="10px">
-        <Link href="https://app.zaigarwarriors.com">
+      <Inner>
+        <LeftWrapper>
+          <StyledSubheading>{t('New Launch!')}</StyledSubheading>
+          <StyledHeading scale="xl">
+            {t('Zaigar Warriors NFTs Airdrop Phase is ON! mint on DAPP clicking here.')}
+          </StyledHeading>
+          <Flex margin-bottom="10px">
+            <Link href="https://app.zaigarwarriors.com">
               <ArrowForwardIcon ml="3px" color="contrast" />
               <Text color="contrast" bold fontSize="20px" ml="6px" mr="4px">
                 {t('Enter DAPP')}
-              </Text>         
-          </Link>
-        </Flex>
-      </LeftWrapper>
-      <RightWrapper>
-        <img src="/images/decorations/zw_logo.png" alt={t('Zaigar Warriors')} />
-      </RightWrapper>
-    </Inner>
-  </Wrapper>
+              </Text>
+            </Link>
+          </Flex>
+        </LeftWrapper>
+        <RightWrapper>
+          <img src="/images/decorations/zw_logo.png" alt={t('Zaigar Warriors')} />
+        </RightWrapper>
+      </Inner>
+    </Wrapper>
   )
 }
 

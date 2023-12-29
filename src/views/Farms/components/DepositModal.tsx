@@ -81,7 +81,7 @@ const DepositModal: React.FC<DepositModalProps> = ({
     annualRoi.gt(10000) ? 0 : 2,
   )
 
-  const depositCount = new BigNumber(lpTokensToStake || 0).times(depositFeeBP/10000).toString()
+  const depositCount = new BigNumber(lpTokensToStake || 0).times(depositFeeBP / 10000).toString()
 
   const handleChange = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
@@ -137,24 +137,17 @@ const DepositModal: React.FC<DepositModalProps> = ({
           </IconButton>
         </AnnualRoiContainer>
       </Flex>
-      {
-       depositFeeBP > 0 ?
+      {depositFeeBP > 0 ? (
         <Flex mt="20px" alignItems="center" justifyContent="space-between">
-        <Text mr="8px" color="textSubtle">
-                {t('Deposit Fee')}:          
-        </Text>
-        <AnnualRoiContainer alignItems="center">
-          <AnnualRoiDisplay> 
-             {depositCount !== 'NaN' ? depositCount : 0}   
-          </AnnualRoiDisplay>
-        </AnnualRoiContainer>
-        <Text color="textSubtle">
-          {tokenName}         
-        </Text>
-     </Flex>
-     :
-      null
-      }
+          <Text mr="8px" color="textSubtle">
+            {t('Deposit Fee')}:
+          </Text>
+          <AnnualRoiContainer alignItems="center">
+            <AnnualRoiDisplay>{depositCount !== 'NaN' ? depositCount : 0}</AnnualRoiDisplay>
+          </AnnualRoiContainer>
+          <Text color="textSubtle">{tokenName}</Text>
+        </Flex>
+      ) : null}
       <ModalActions>
         <Button variant="secondary" onClick={onDismiss} width="100%" disabled={pendingTx}>
           {t('Cancel')}

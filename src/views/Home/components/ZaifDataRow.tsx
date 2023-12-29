@@ -41,8 +41,6 @@ const Grid = styled.div`
   }
 `
 
-const emissionsPerBlock = 0
-
 const ZaifDataRow = () => {
   const { t } = useTranslation()
   const totalSupply = useTotalSupply()

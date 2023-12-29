@@ -211,12 +211,12 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
       <Skeleton width="56px" height="16px" />
     )
 
-    const minimumTokensRow = (
-      <Flex justifyContent="space-between" alignItems="center" mb="8px">
-        <Text color="#FF6347">{t('Min. Required')}: </Text>
-        <Text color="#FF6347"> {`${requiredTokens} ${stakingToken.symbol}`}</Text>
-      </Flex>
-    )
+  const minimumTokensRow = (
+    <Flex justifyContent="space-between" alignItems="center" mb="8px">
+      <Text color="#FF6347">{t('Min. Required')}: </Text>
+      <Text color="#FF6347"> {`${requiredTokens} ${stakingToken.symbol}`}</Text>
+    </Flex>
+  )
 
   const aprRow = (
     <Flex justifyContent="space-between" alignItems="center" mb="8px">
@@ -254,7 +254,7 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
       <InfoSection>
         {maxStakeRow}
         {(isXs || isSm) && aprRow}
-        {(sousId !== 0) && minimumTokensRow}
+        {sousId !== 0 && minimumTokensRow}
         {(isXs || isSm || isMd) && totalStakedRow}
         {shouldShowBlockCountdown && blocksRow}
         <Flex mb="8px" justifyContent={['flex-end', 'flex-end', 'flex-start']}>

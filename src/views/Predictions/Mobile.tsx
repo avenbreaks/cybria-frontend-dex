@@ -15,7 +15,7 @@ const StyledMobile = styled.div`
   flex-direction: column;
   height: 100%;
   max-height: 100%;
-  padding-top:1px;
+  padding-top: 1px;
 
   ${({ theme }) => theme.mediaQueries.xl} {
     display: none;
@@ -24,7 +24,7 @@ const StyledMobile = styled.div`
 
 const View = styled.div<{ isVisible: boolean }>`
   height: 100%;
-  margin-top:-10px;
+  margin-top: -10px;
   left: 0;
   position: absolute;
   width: 100%;

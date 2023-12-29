@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react'
-import { useHistory ,useLocation } from 'react-router-dom';
+// import { useHistory ,useLocation } from 'react-router-dom';
 import { useWeb3React } from '@web3-react/core'
 import { Helmet } from 'react-helmet-async'
 import { useMatchBreakpoints, useModal } from '@zaigar-finance/uikit'
 import { useAppDispatch } from 'state'
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
+// import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 import Cookies from 'js-cookie'
 import { useGetPredictionsStatus, useIsChartPaneOpen } from 'state/predictions/hooks'
 import { useInitialBlock } from 'state/block/hooks'
@@ -22,23 +22,22 @@ import Mobile from './Mobile'
 import RiskDisclaimer from './components/RiskDisclaimer'
 import ChartDisclaimer, { CHART_LOCAL_STORAGE_KEY } from './components/ChartDisclaimer'
 
-
 const Predictions = () => {
-  const urlElements = window.location.href.split('/');
-  let urlElement = (urlElements[4]);
+  const urlElements = window.location.href.split('/')
+  let urlElement = urlElements[4]
   /* dica para url com o ref=
   const x = new URLSearchParams(window.location.search);
   const param = x.get("ref"); */
-  
-  if(urlElement === "0x0"){
-    urlElement = "0x0000000000000000000000000000000000000000";
-  }
-  const REF_KEY = 'ReferAddress';
-  const test = Cookies.get(REF_KEY);
 
- if(test === undefined){
-      Cookies.set(REF_KEY, urlElement, { expires: 1 }); 
- }
+  if (urlElement === '0x0') {
+    urlElement = '0x0000000000000000000000000000000000000000'
+  }
+  const REF_KEY = 'ReferAddress'
+  const test = Cookies.get(REF_KEY)
+
+  if (test === undefined) {
+    Cookies.set(REF_KEY, urlElement, { expires: 1 })
+  }
 
   const { isXl } = useMatchBreakpoints()
   const [hasAcceptedRisk, setHasAcceptedRisk] = usePersistState(false, {

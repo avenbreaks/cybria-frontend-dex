@@ -13,9 +13,7 @@ import { fetchPoolsTotalStaking } from 'state/pools/fetchPools'
 import { fetchFarmsPublicDataAsync, fetchFarmUserDataAsync, nonArchivedFarms } from '.'
 import { State, Farm, FarmsState } from '../types'
 
-
 const ZERO = new BigNumber(0)
-
 
 export const usePollFarmsData = (includeArchive = false) => {
   const dispatch = useAppDispatch()
@@ -52,7 +50,6 @@ export const useFarms = (): FarmsState => {
   const farms = useSelector((state: State) => state.farms)
   return farms
 }
-
 
 export const useFarmsQT = (): Farm[] => {
   const farms = useSelector((state: State) => state.farms.data)
@@ -134,48 +131,39 @@ export const usePriceCakeBusd = (): BigNumber => {
 }
 
 export const PoolsTotalStaking = async () => {
-
   // Based if all pools/vaults are staking ZFAI
 
   const PoolsData = await fetchPoolsTotalStaking().then((result) => {
-   
-    let value = new BigNumber(0);
+    let value = new BigNumber(0)
 
     for (let i = 0; i < result.length; i++) {
-     
       const poolTotalTokens = getBalanceNumber(new BigNumber(result[i].totalStaked))
 
       value = value.plus(poolTotalTokens)
-      
     }
-    return value   
+    return value
   })
 
   return PoolsData
-
 }
 
 export const useTotalValue = (): BigNumber => {
-
-    let value = new BigNumber(0);
-
+  let value = new BigNumber(0)
 
   // Farms Value
-  const farms = useFarmsQT();
+  const farms = useFarmsQT()
 
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
 
     if (farm.lpTotalInQuoteToken) {
+      const totalLiquidity = farm.isTokenOnly
+        ? new BigNumber(farm.tokenAmountTotal).times(farm.token.busdPrice)
+        : new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
 
-      const totalLiquidity = farm.isTokenOnly? new BigNumber(farm.tokenAmountTotal).times(farm.token.busdPrice) : new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
-
-      
       value = value.plus(totalLiquidity)
-
     }
   }
-  
-  return value
 
+  return value
 }

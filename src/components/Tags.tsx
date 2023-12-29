@@ -80,10 +80,9 @@ const NoFeeTag: React.FC<TagProps> = (props) => {
   return (
     <Tag variant="success" outline startIcon={<VerifiedIcon />} {...props}>
       {t('No Fees')}
-  </Tag>
+    </Tag>
   )
 }
-
 
 const ClosedTag: React.FC<TagProps> = (props) => {
   const { t } = useTranslation()

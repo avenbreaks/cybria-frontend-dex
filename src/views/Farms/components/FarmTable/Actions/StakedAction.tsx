@@ -6,7 +6,7 @@ import { BigNumber } from 'bignumber.js'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import Balance from 'components/Balance'
 import { useWeb3React } from '@web3-react/core'
-import { useFarmUser, useLpTokenPrice, usePriceCakeBusd,useBusdPriceFromPid } from 'state/farms/hooks'
+import { useFarmUser, useLpTokenPrice, usePriceCakeBusd, useBusdPriceFromPid } from 'state/farms/hooks'
 import { fetchFarmUserDataAsync } from 'state/farms'
 import { FarmWithStakedValue } from 'views/Farms/components/FarmCard/FarmCard'
 import { useTranslation } from 'contexts/Localization'
@@ -47,7 +47,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   isTokenOnly,
   userDataReady,
   displayApr,
-  depositFeeBP
+  depositFeeBP,
 }) => {
   const { t } = useTranslation()
   const { account } = useWeb3React()
@@ -63,7 +63,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   const isApproved = account && allowance && allowance.isGreaterThan(0)
 
   const lpAddress = getAddress(lpAddresses)
-  const tokenAdr = getAddress(tokenAddress);
+  const tokenAdr = getAddress(tokenAddress)
   const liquidityUrlPathParts = getLiquidityUrlPathParts({
     quoteTokenAddress: quoteToken.address,
     tokenAddress: token.address,
@@ -95,7 +95,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
     <DepositModal
       max={tokenBalance}
       isTokenOnly={isTokenOnly}
-      lpPrice={isTokenOnly? tokenPrice : lpPrice}
+      lpPrice={isTokenOnly ? tokenPrice : lpPrice}
       lpLabel={lpLabel}
       depositFeeBP={depositFeeBP}
       apr={apr}
@@ -113,13 +113,13 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
   )
 
   const lpContract = useMemo(() => {
-    if(isTokenOnly){
-      return tokenAdr;
+    if (isTokenOnly) {
+      return tokenAdr
     }
-    return lpAddress;
+    return lpAddress
   }, [lpAddress, tokenAdr, isTokenOnly])
 
- const lptContract = useERC20(lpContract)
+  const lptContract = useERC20(lpContract)
 
   const dispatch = useAppDispatch()
   const { onApprove } = useApproveFarm(lptContract)
@@ -166,29 +166,29 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           <ActionContent>
             <div>
               <Heading>{displayBalance()}</Heading>
-              {isTokenOnly?
-              stakedBalance.gt(0) && tokenPrice.gt(0) && (
-                <Balance
-                  fontSize="12px"
-                  color="textSubtle"
-                  decimals={2}
-                  value={getBalanceNumber(tokenPrice.times(stakedBalance))}
-                  unit=" USD"
-                  prefix="~"
-                />
-              )
-              :
-              stakedBalance.gt(0) && lpPrice.gt(0) && (
-                <Balance
-                  fontSize="12px"
-                  color="textSubtle"
-                  decimals={2}
-                  value={getBalanceNumber(lpPrice.times(stakedBalance))}
-                  unit=" USD"
-                  prefix="~"
-                />
-              )
-              }
+              {isTokenOnly
+                ? stakedBalance.gt(0) &&
+                  tokenPrice.gt(0) && (
+                    <Balance
+                      fontSize="12px"
+                      color="textSubtle"
+                      decimals={2}
+                      value={getBalanceNumber(tokenPrice.times(stakedBalance))}
+                      unit=" USD"
+                      prefix="~"
+                    />
+                  )
+                : stakedBalance.gt(0) &&
+                  lpPrice.gt(0) && (
+                    <Balance
+                      fontSize="12px"
+                      color="textSubtle"
+                      decimals={2}
+                      value={getBalanceNumber(lpPrice.times(stakedBalance))}
+                      unit=" USD"
+                      prefix="~"
+                    />
+                  )}
             </div>
             <IconButtonWrapper>
               <IconButton variant="secondary" onClick={onPresentWithdraw} mr="6px">

@@ -22,7 +22,7 @@ type PublicFarmData = {
 }
 
 const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
-  const { pid, lpAddresses, token, quoteToken, isTokenOnly , depositFee} = farm
+  const { pid, lpAddresses, token, quoteToken, isTokenOnly } = farm
   const lpAddress = getAddress(lpAddresses)
   const calls = [
     // Balance of token in the LP contract
@@ -63,14 +63,13 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   const [tokenBalanceLP, quoteTokenBalanceLP, lpTokenBalanceMC, lpTotalSupply, tokenDecimals, quoteTokenDecimals] =
     await multicall(erc20, calls)
 
-
   // Ratio in % of LP tokens that are staked in the MC, vs the total number in circulation
   const lpTokenRatio = new BigNumber(lpTokenBalanceMC).div(new BigNumber(lpTotalSupply))
 
   // Raw amount of token in the LP, including those not staked
-  
+
   const tokenAmountTotal = new BigNumber(tokenBalanceLP).div(BIG_TEN.pow(tokenDecimals))
-  
+
   const quoteTokenAmountTotal = new BigNumber(quoteTokenBalanceLP).div(BIG_TEN.pow(quoteTokenDecimals))
 
   // Amount of token in the LP that are staked in the MC (i.e amount of token * lp ratio)
@@ -78,8 +77,7 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
   const quoteTokenAmountMc = quoteTokenAmountTotal.times(lpTokenRatio)
 
   // Total staked in LP, in quote token value
-    const lpTotalInQuoteToken = quoteTokenAmountMc.times(new BigNumber(2))
-   
+  const lpTotalInQuoteToken = quoteTokenAmountMc.times(new BigNumber(2))
 
   // Only make masterchef calls if farm has pid
   const [info, totalAllocPoint] =
@@ -99,21 +97,22 @@ const fetchFarm = async (farm: Farm): Promise<PublicFarmData> => {
 
   const allocPoint = info ? new BigNumber(info.allocPoint?._hex) : BIG_ZERO
   const poolWeight = totalAllocPoint ? allocPoint.div(new BigNumber(totalAllocPoint)) : BIG_ZERO
-  const depositFeeFetch = farm.depositFee;
+  const depositFeeFetch = farm.depositFee
 
   return {
     tokenAmountMc: tokenAmountMc.toJSON(),
     quoteTokenAmountMc: quoteTokenAmountMc.toJSON(),
-    tokenAmountTotal: isTokenOnly? new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals)).toJSON() : tokenAmountTotal.toJSON(),
+    tokenAmountTotal: isTokenOnly
+      ? new BigNumber(lpTokenBalanceMC).div(new BigNumber(10).pow(tokenDecimals)).toJSON()
+      : tokenAmountTotal.toJSON(),
     quoteTokenAmountTotal: quoteTokenAmountTotal.toJSON(),
     depositFeeBP: depositFeeFetch,
-    lpTotalSupply: new BigNumber(lpTotalSupply).toJSON() ,
+    lpTotalSupply: new BigNumber(lpTotalSupply).toJSON(),
     lpTotalInQuoteToken: lpTotalInQuoteToken.toJSON(),
     tokenPriceVsQuote: quoteTokenAmountTotal.div(tokenAmountTotal).toJSON(),
     poolWeight: poolWeight.toJSON(),
     multiplier: `${allocPoint.div(100).toString()}X`,
   }
- 
 }
 
 export default fetchFarm

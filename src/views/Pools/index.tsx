@@ -318,7 +318,7 @@ const Pools: React.FC = () => {
           mt="12px"
           src="/images/decorations/logoFooter.png"
           alt="Vault illustration"
-          width={850} 
+          width={850}
           height={369}
         />
       </Page>

@@ -45,7 +45,6 @@ import { getContract } from '../utils'
  * Helper hooks to get specific contracts (by ABI)
  */
 
-
 export const useIfoV1Contract = (address: string) => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getIfoV1Contract(address, library.getSigner()), [address, library])
@@ -158,7 +157,6 @@ export const useChainlinkOracleContract = () => {
   return useMemo(() => getChainlinkOracleContract(library.getSigner()), [library])
 }
 
-
 export const useSpecialBunnyCakeVaultContract = () => {
   const { library } = useActiveWeb3React()
   return useMemo(() => getBunnySpecialCakeVaultContract(library.getSigner()), [library])
@@ -184,7 +182,6 @@ export const useFarmAuctionContract = () => {
   // Similar behavior was also noticed on Trading Competition page.
   return useMemo(() => getFarmAuctionContract(account ? library.getSigner() : library), [library, account])
 }
-
 
 // Code below migrated from Exchange useContract.ts
 

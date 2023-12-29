@@ -1,5 +1,5 @@
 import React from 'react' // Remove useState
-import { Box, Flex, FlexProps,Text} from '@zaigar-finance/uikit' // Remove CopyIcon
+import { Box, Flex, FlexProps, Text } from '@zaigar-finance/uikit' // Remove CopyIcon
 import styled from 'styled-components'
 
 interface ReferralCountProps extends FlexProps {
@@ -32,15 +32,16 @@ const Count = styled.div`
       outline: 0;
     }
   }
-
 `
 
 const RefCount: React.FC<ReferralCountProps> = ({ count, ...props }) => {
   return (
     <Box position="relative" {...props}>
       <Wrapper>
-        <Text color="secondary" ml="5px" mr="1px">Referrals: </Text>
-        <Count title='Your Referral Count:' >
+        <Text color="secondary" ml="5px" mr="1px">
+          Referrals:{' '}
+        </Text>
+        <Count title="Your Referral Count:">
           <input type="text" color="white" readOnly value={count} />
         </Count>
       </Wrapper>

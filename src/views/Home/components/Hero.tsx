@@ -6,7 +6,7 @@ import { useTranslation } from 'contexts/Localization'
 import ConnectWalletButton from 'components/ConnectWalletButton'
 import useTheme from 'hooks/useTheme'
 import { SlideSvgDark, SlideSvgLight } from './SlideSvg'
-import CompositeImage, { getSrcSet, CompositeImageProps } from './CompositeImage'
+import { getSrcSet } from './CompositeImage' // Remove CompositeImage,CompositeImageProps
 
 const flyingAnim = () => keyframes`
   from {
@@ -29,7 +29,7 @@ const flyingAnim = () => keyframes`
 //   }
 //   to {
 //     opacity: 0.9;
-//   }  
+//   }
 // `
 
 const BgWrapper = styled.div`
@@ -103,10 +103,12 @@ const Hero = () => {
       >
         <Flex flex="1" flexDirection="column">
           <Heading scale="xxl" color="secondary" mb="24px">
-            {t('DeFi By Zaigar')}
+            {t('Dex Swap By Cybria Mainnet')}
           </Heading>
           <Heading scale="md" mb="24px">
-            {t('Trade, earn, and win crypto on the most growing decentralized finance platform by the creators of zaigar.com.')}
+            {t(
+              'Trade, earn, and win crypto on the most growing decentralized finance platform by the creators of Cybria Dev,',
+            )}
           </Heading>
           <Flex>
             {!account && <ConnectWalletButton mr="8px" />}
@@ -127,7 +129,6 @@ const Hero = () => {
           <LogoWrapper>
             <img src={`${imagePath}${imageSrc}.png`} srcSet={getSrcSet(imagePath, imageSrc)} alt={t('Logo')} />
           </LogoWrapper>
-
         </Flex>
       </Flex>
     </>

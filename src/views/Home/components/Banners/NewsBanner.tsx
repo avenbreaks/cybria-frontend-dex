@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Flex, Button, ArrowForwardIcon, Link, Heading } from '@zaigar-finance/uikit'
+import { Text, Flex, ArrowForwardIcon, Link, Heading } from '@zaigar-finance/uikit' // Remove Button
 import { useTranslation } from 'contexts/Localization'
 
 const StyledSubheading = styled(Heading)`
@@ -15,7 +15,7 @@ const StyledSubheading = styled(Heading)`
 
 const StyledHeading = styled(Heading)`
   color: #ffffff;
-  background: -webkit-linear-gradient(#0ABAB5 0%, #0000 100%);
+  background: -webkit-linear-gradient(#0abab5 0%, #0000 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-stroke: 6px transparent;
@@ -26,7 +26,7 @@ const StyledHeading = styled(Heading)`
 const Wrapper = styled.div`
   border-radius: 10px;
   width: 100%;
-  background-image: linear-gradient(#0ABAB5, #0000);
+  background-image: linear-gradient(#0abab5, #0000);
   max-height: max-content;
   overflow: hidden;
 `
@@ -84,18 +84,18 @@ const NewsBanner = () => {
           <StyledSubheading>{t('New Launch!')}</StyledSubheading>
           <StyledHeading scale="xl">{t('Try to predict the market on our new binary options game.')}</StyledHeading>
           <Flex margin-bottom="10px">
-          <Link href="/options/0x0">
-          <ArrowForwardIcon color="Contrast" />
+            <Link href="/options/0x0">
+              <ArrowForwardIcon color="Contrast" />
               <Text color="contrast" bold fontSize="22px" mr="8px">
                 {t('Play')}
-              </Text>            
-          </Link>
-          <Link href="https://docs.zaigar.finance/products/zai-options">
+              </Text>
+            </Link>
+            <Link href="https://docs.zaigar.finance/products/zai-options">
               <ArrowForwardIcon color="Contrast" />
               <Text color="contrast" bold fontSize="22px" mr="4px">
                 {t('Learn')}
-              </Text>         
-          </Link>
+              </Text>
+            </Link>
           </Flex>
         </LeftWrapper>
         <RightWrapper>

@@ -28,10 +28,9 @@ import { RowProps } from './components/FarmTable/Row'
 import ToggleView from './components/ToggleView/ToggleView'
 import { DesktopColumnSchema, ViewMode } from './components/types'
 
-export interface FarmsProps{
+export interface FarmsProps {
   tokenMode?: boolean
 }
-
 
 const ControlContainer = styled.div`
   display: flex;
@@ -128,9 +127,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const { account } = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
   const chosenFarmsLength = useRef(0)
-  const {tokenMode} = farmsProps;
+  const { tokenMode } = farmsProps
 
-  const depositFees = (farm) => farm.depositFee;
+  // const depositFees = (farm) => farm.depositFee;
 
   const isArchived = pathname.includes('archived')
   const isInactive = pathname.includes('history')
@@ -143,11 +142,17 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   const userDataReady = !account || (!!account && userDataLoaded)
 
   const [stakedOnly, setStakedOnly] = useUserFarmStakedOnly(isActive)
-  
+
   // removed from both /* farm.pid !== 0 && */
 
-  const activeFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid)) 
-  const inactiveFarms = farmsLP.filter((farm) => !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid))
+  const activeFarms = farmsLP.filter(
+    (farm) =>
+      !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier !== '0X' && !isArchivedPid(farm.pid),
+  )
+  const inactiveFarms = farmsLP.filter(
+    (farm) =>
+      !!farm.isTokenOnly === !!tokenMode && farm.pid !== 0 && farm.multiplier === '0X' && !isArchivedPid(farm.pid),
+  )
   const archivedFarms = farmsLP.filter((farm) => isArchivedPid(farm.pid))
 
   const stakedOnlyFarms = activeFarms.filter(
@@ -168,7 +173,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         if (!farm.lpTotalInQuoteToken || !farm.quoteToken.busdPrice) {
           return farm
         }
-        const totalLiquidity = farm.isTokenOnly? new BigNumber(farm.tokenAmountTotal).times(farm.token.busdPrice) : new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
+        const totalLiquidity = farm.isTokenOnly
+          ? new BigNumber(farm.tokenAmountTotal).times(farm.token.busdPrice)
+          : new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
         const { cakeRewardsApr, lpRewardsApr } = isActive
           ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity, farm.lpAddresses[ChainId.MAINNET])
           : { cakeRewardsApr: 0, lpRewardsApr: 0 }
@@ -275,7 +282,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
   }, [chosenFarmsMemoized, observerIsSet])
 
   const rowData = chosenFarmsMemoized.map((farm) => {
-    const { token, quoteToken, depositFee } = farm
+    const { token, quoteToken } = farm
     const tokenAddress = token.address
     const quoteTokenAddress = quoteToken.address
     const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
@@ -298,7 +305,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         token: farm.token,
         quoteToken: farm.quoteToken,
         isTokenOnly: farm.isTokenOnly,
-        depositFee: farm.depositFee
+        depositFee: farm.depositFee,
       },
       earned: {
         earnings: getBalanceNumber(new BigNumber(farm.userData.earnings)),
@@ -396,24 +403,13 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
     <>
       <PageHeader>
         <Heading as="h1" scale="xxl" color="secondary" mb="24px">
-        {
-          tokenMode ?
-            t('Pools')
-            :
-            t('Farms')
-          }
+          {tokenMode ? t('Pools') : t('Farms')}
         </Heading>
         <Heading scale="lg" color="text">
-          {
-          tokenMode ?
-            t('Stake tokens to earn.')
-            :
-            t('Stake LP tokens to earn.')
-          }
+          {tokenMode ? t('Stake tokens to earn.') : t('Stake LP tokens to earn.')}
         </Heading>
         <NavLink exact activeClassName="active" to="/farms/auction" id="lottery-pot-banner">
-          <Button p="0" variant="text">
-          </Button>
+          <Button p="0" variant="text"></Button>
         </NavLink>
       </PageHeader>
       <Page>
@@ -457,7 +453,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
             </LabelWrapper>
             <LabelWrapper style={{ marginLeft: 16 }}>
               <Text textTransform="uppercase">{t('Search')}</Text>
-              <SearchInput onChange={handleChangeQuery} placeholder={tokenMode? 'Search Pools' : 'Search Farms'} />
+              <SearchInput onChange={handleChangeQuery} placeholder={tokenMode ? 'Search Pools' : 'Search Farms'} />
             </LabelWrapper>
           </FilterContainer>
         </ControlContainer>

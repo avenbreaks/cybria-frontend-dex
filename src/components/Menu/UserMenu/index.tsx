@@ -1,12 +1,6 @@
 import React from 'react'
 import { useWeb3React } from '@web3-react/core'
-import {
-  Flex,
-  LogoutIcon,
-  useModal,
-  UserMenu as UIKitUserMenu,
-  UserMenuItem,
-} from '@zaigar-finance/uikit' // Remove UserMenuDivider,
+import { Flex, LogoutIcon, useModal, UserMenu as UIKitUserMenu, UserMenuItem } from '@zaigar-finance/uikit' // Remove UserMenuDivider,
 import useAuth from 'hooks/useAuth'
 import { useProfile } from 'state/profile/hooks'
 import ConnectWalletButton from 'components/ConnectWalletButton'

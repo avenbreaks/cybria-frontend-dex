@@ -4,8 +4,7 @@ import BigNumber from 'bignumber.js'
 import { Flex, IconButton, useModal, CalculateIcon } from '@zaigar-finance/uikit'
 import RoiCalculatorModal from 'components/RoiCalculatorModal'
 import { useTranslation } from 'contexts/Localization'
-import { useFarmUser, useLpTokenPrice,useBusdPriceFromPid } from 'state/farms/hooks'
-
+import { useFarmUser, useLpTokenPrice, useBusdPriceFromPid } from 'state/farms/hooks'
 
 const ApyLabelContainer = styled(Flex)`
   cursor: pointer;
@@ -49,7 +48,7 @@ const ApyButton: React.FC<ApyButtonProps> = ({
       linkLabel={t('Get %symbol%', { symbol: lpLabel })}
       stakingTokenBalance={stakedBalance.plus(tokenBalance)}
       stakingTokenSymbol={lpSymbol}
-      stakingTokenPrice={isTokenOnly? tokenPrice.toNumber() : lpPrice.toNumber()}
+      stakingTokenPrice={isTokenOnly ? tokenPrice.toNumber() : lpPrice.toNumber()}
       earningTokenPrice={cakePrice.toNumber()}
       apr={apr}
       multiplier={multiplier}

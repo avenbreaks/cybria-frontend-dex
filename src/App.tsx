@@ -71,55 +71,55 @@ const App: React.FC = () => {
             <Route path="/" exact>
               <Home />
             </Route>
-           {/*   <Route exact path="/farms/auction">
+            {/*   <Route exact path="/farms/auction">
               <FarmAuction />
             </Route> */}
             <Route path="/farms">
               <Farms />
             </Route>
             <Route path="/pools">
-              <Farms tokenMode/>
-            </Route> 
-           <Route path="/vaults">
+              <Farms tokenMode />
+            </Route>
+            <Route path="/vaults">
               <Pools />
-          </Route> 
+            </Route>
             <Route path="/about">
               <About />
-            </Route> 
+            </Route>
             <Route path="/airdrop">
               <Airdrop />
-            </Route> 
-       {/*     <Route path="/lottery">
+            </Route>
+            {/*     <Route path="/lottery">
               <Lottery />
             </Route> */}
-        {/*    <Route path="/ifo">
+            {/*    <Route path="/ifo">
               <Ifos />
             </Route> */}
-         {/*   <Route path="/collectibles">
+            {/*   <Route path="/collectibles">
               <Collectibles />
             </Route> */}
-         {/*   <Route exact path="/teams">
+            {/*   <Route exact path="/teams">
               <Teams />
             </Route> */}
-           {/* <Route path="/teams/:id">
+            {/* <Route path="/teams/:id">
               <Team />
             </Route> */}
-           {/* <Route path="/profile">
+            {/* <Route path="/profile">
               <Profile />
             </Route> */}
-           {/* <Route path="/competition">
+            {/* <Route path="/competition">
               <TradingCompetition />
             </Route> */}
             <Route path="/options/:id">
               <Predictions />
-            </Route> 
+            </Route>
             {/* <Route exact path="/voting">
               <Voting />
-            </Route> */ }
-          {/*  <Route exact path="/voting/proposal/create">
+            </Route> */}
+            {/*  <Route exact path="/voting/proposal/create">
                 <CreateProposal />
               </Route> */}
-          {/*  <Route path="/voting/proposal/:id">
+            {/*  <Route path="/voting/proposal/:id">
               <Proposal />
             </Route> */}
 

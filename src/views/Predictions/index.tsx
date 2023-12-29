@@ -22,23 +22,22 @@ import Mobile from './Mobile'
 import RiskDisclaimer from './components/RiskDisclaimer'
 import ChartDisclaimer, { CHART_LOCAL_STORAGE_KEY } from './components/ChartDisclaimer'
 
-
 const Predictions = () => {
-  const urlElements = window.location.href.split('/');
-  let urlElement = (urlElements[4]);
+  const urlElements = window.location.href.split('/')
+  let urlElement = urlElements[4]
   /* dica para url com o ref=
   const x = new URLSearchParams(window.location.search);
   const param = x.get("ref"); */
-  
-  if(urlElement === "0x0"){
-    urlElement = "0x0000000000000000000000000000000000000000";
-  }
-  const REF_KEY = 'ReferAddress';
-  const test = Cookies.get(REF_KEY);
 
- if(test === undefined){
-      Cookies.set(REF_KEY, urlElement, { expires: 1 }); 
- }
+  if (urlElement === '0x0') {
+    urlElement = '0x0000000000000000000000000000000000000000'
+  }
+  const REF_KEY = 'ReferAddress'
+  const test = Cookies.get(REF_KEY)
+
+  if (test === undefined) {
+    Cookies.set(REF_KEY, urlElement, { expires: 1 })
+  }
 
   const { isXl } = useMatchBreakpoints()
   const [hasAcceptedRisk, setHasAcceptedRisk] = usePersistState(false, {

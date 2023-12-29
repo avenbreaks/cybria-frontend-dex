@@ -53,15 +53,15 @@ const SalesSection: React.FC<SalesSectionProps> = (props) => {
                   {t(primaryButton.text)}
                 </Text>
               </Button>
-              {thirdButton?(
-                <><Link ml="10px" color="secondary" external={thirdButton.external} href={thirdButton.to}>
-                <Button color="secondary">
-                {t(thirdButton.text)}
-                </Button>
-                </Link></>
-            ):(
-           <></>
-            )}
+              {thirdButton ? (
+                <>
+                  <Link ml="10px" color="secondary" external={thirdButton.external} href={thirdButton.to}>
+                    <Button color="secondary">{t(thirdButton.text)}</Button>
+                  </Link>
+                </>
+              ) : (
+                <></>
+              )}
             </Link>
             <Link external={secondaryButton.external} href={secondaryButton.to}>
               {t(secondaryButton.text)}

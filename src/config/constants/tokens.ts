@@ -1,13 +1,7 @@
 import { ChainId, Token } from '@pancakeswap/sdk'
 
 export const ZFAI: { [chainId: number]: Token } = {
-  [ChainId.MAINNET]: new Token(
-    ChainId.MAINNET,
-    '0x205cD59eEA8e8c5083f16D20e1050fD4a7d72037',
-    18,
-    'ZFAI',
-    'Zafira',
-  ),
+  [ChainId.MAINNET]: new Token(ChainId.MAINNET, '0x205cD59eEA8e8c5083f16D20e1050fD4a7d72037', 18, 'ZFAI', 'Zafira'),
   [ChainId.TESTNET]: new Token(
     ChainId.TESTNET,
     '0xd58bc8587535241FC1F66B28C06bbC4C263B0f2D',
@@ -76,7 +70,7 @@ const tokens = {
   zaif: {
     symbol: 'ZAIF',
     address: {
-      56: '0x280C3Fc949b1a1D7a470067cA6F7b48b3CB219c5', 
+      56: '0x280C3Fc949b1a1D7a470067cA6F7b48b3CB219c5',
       97: '0x47Ad2B1e6604A45c4d1a44245E143691317d8cc6',
     },
     decimals: 18,
@@ -94,7 +88,7 @@ const tokens = {
   zefi: {
     symbol: 'ZEFI',
     address: {
-      56: '0x0288D3E353fE2299F11eA2c2e1696b4A648eCC07', 
+      56: '0x0288D3E353fE2299F11eA2c2e1696b4A648eCC07',
       97: '0xd614fa47af78087eff6cd439ceed0c5847e01834',
     },
     decimals: 18,

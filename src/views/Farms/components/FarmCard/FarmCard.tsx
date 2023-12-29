@@ -105,22 +105,20 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
         )}
         <Flex justifyContent="space-between">
           <Text>{t('Earn')}:</Text>
-          {farm.isTokenOnly?
-           <Text bold>{earnLabelToken}</Text>
-          :
-          <Text bold>{earnLabel}</Text>
-          }
+          {farm.isTokenOnly ? <Text bold>{earnLabelToken}</Text> : <Text bold>{earnLabel}</Text>}
         </Flex>
-        <Flex justifyContent='space-between'>
+        <Flex justifyContent="space-between">
           <Text style={{ fontSize: '24px' }}>{t('Deposit Fee')}:</Text>
-          <Text bold style={{ fontSize: '24px' }}>{(farm.depositFeeBP / 100)}%</Text>
+          <Text bold style={{ fontSize: '24px' }}>
+            {farm.depositFeeBP / 100}%
+          </Text>
         </Flex>
         <CardActionsContainer
           farm={farm}
           lpLabel={lpLabel}
           account={account}
           cakePrice={cakePrice}
-          addLiquidityUrl={ farm.isTokenOnly? swapUrl : addLiquidityUrl }
+          addLiquidityUrl={farm.isTokenOnly ? swapUrl : addLiquidityUrl}
         />
       </FarmCardInnerContainer>
 
@@ -131,13 +129,19 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, displayApr, removed, cakePric
         />
         {showExpandableSection && (
           <DetailsSection
-            infoText = {farm.isTokenOnly? t('See Token Info') : t('See Pair Info')}
+            infoText={farm.isTokenOnly ? t('See Token Info') : t('See Pair Info')}
             removed={removed}
-            bscScanAddress={ farm.isTokenOnly? getBscScanLink(tokenAddress, 'address') : getBscScanLink(lpAddress, 'address')}
-            infoAddress= { farm.isTokenOnly? `https://pancakeswap.info/token/${tokenAddress}` : `https://pancakeswap.info/pool/${lpAddress}` }
+            bscScanAddress={
+              farm.isTokenOnly ? getBscScanLink(tokenAddress, 'address') : getBscScanLink(lpAddress, 'address')
+            }
+            infoAddress={
+              farm.isTokenOnly
+                ? `https://pancakeswap.info/token/${tokenAddress}`
+                : `https://pancakeswap.info/pool/${lpAddress}`
+            }
             totalValueFormatted={totalValueFormatted}
             lpLabel={lpLabel}
-            addLiquidityUrl= { farm.isTokenOnly? swapUrl : addLiquidityUrl }
+            addLiquidityUrl={farm.isTokenOnly ? swapUrl : addLiquidityUrl}
           />
         )}
       </ExpandingWrapper>
