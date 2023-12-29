@@ -14,7 +14,7 @@ const StyledSubheading = styled(Heading)`
 `
 
 const StyledHeading = styled(Heading)`
-  color: #ffffff;
+  color: #293873;
   background: -webkit-linear-gradient(#0abab5 0%, #0000 100%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -82,9 +82,9 @@ const NftBanner = () => {
       <Inner>
         <LeftWrapper>
           <StyledSubheading>{t('Staking Update!')}</StyledSubheading>
-          <StyledHeading scale="xl">{t('Stake your ZFAIs and earn up to 198% APR clicking here.')}</StyledHeading>
+          <StyledHeading scale="xl">{t('Stake your CYBA and earn up to 5% APR clicking here.')}</StyledHeading>
           <Flex margin-bottom="10px">
-            <Link href="https://zaigar.finance/vaults">
+            <Link href="/vaults">
               <ArrowForwardIcon ml="3px" color="contrast" />
               <Text color="contrast" bold fontSize="20px" ml="6px" mr="4px">
                 {t('Enter Page')}
