@@ -7,9 +7,9 @@ import { getRoundResult, Result } from 'state/predictions/helpers'
 import { REWARD_RATE } from 'state/predictions/config'
 import { getBscScanLink } from 'utils'
 import { useGetCurrentEpoch } from 'state/predictions/hooks'
-import { usePriceBnbBusd , usePriceZaifBusd } from 'state/farms/hooks'
+import { usePriceZaifBusd } from 'state/farms/hooks' // Remove usePriceBnbBusd 
 import { Bet, BetPosition } from 'state/types'
-import { formatBnb, getMultiplier, getNetPayout,getMultiplierv4 } from '../helpers'
+import { formatBnb, getNetPayout,getMultiplierv4 } from '../helpers' // Remove getMultiplier
 import PnlChart from './PnlChart'
 import SummaryRow from './SummaryRow'
 

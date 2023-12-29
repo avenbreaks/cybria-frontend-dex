@@ -1,10 +1,10 @@
 import React, { useEffect, useRef } from 'react'
-import { useHistory ,useLocation } from 'react-router-dom';
+// import { useHistory ,useLocation } from 'react-router-dom';
 import { useWeb3React } from '@web3-react/core'
 import { Helmet } from 'react-helmet-async'
 import { useMatchBreakpoints, useModal } from '@zaigar-finance/uikit'
 import { useAppDispatch } from 'state'
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
+// import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies';
 import Cookies from 'js-cookie'
 import { useGetPredictionsStatus, useIsChartPaneOpen } from 'state/predictions/hooks'
 import { useInitialBlock } from 'state/block/hooks'

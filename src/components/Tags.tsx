@@ -78,7 +78,7 @@ const SoonTag: React.FC<TagProps> = (props) => {
 const NoFeeTag: React.FC<TagProps> = (props) => {
   const { t } = useTranslation()
   return (
-    <Tag variant="success" outline startIcon={<VerifiedIcon />}>
+    <Tag variant="success" outline startIcon={<VerifiedIcon />} {...props}>
       {t('No Fees')}
   </Tag>
   )

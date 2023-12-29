@@ -4,7 +4,6 @@ import {
   Card,
   CardBody,
   CardHeader,
-  CardRibbon,
   Flex,
   Heading,
   IconButton,
@@ -15,28 +14,28 @@ import {
   Slider,
   Box,
   AutoRenewIcon,
-} from '@zaigar-finance/uikit'
-import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies'
+} from '@zaigar-finance/uikit' // Remove CardRibbon
+// import { bake_cookie, read_cookie, delete_cookie } from 'sfcookies'
 import Cookies from 'js-cookie'
 import { ethers } from 'ethers'
-import { Token, TokenAmount } from '@pancakeswap/sdk'
-import { useSingleCallResult } from 'state/multicall/hooks'
+// import { Token, TokenAmount } from '@pancakeswap/sdk'
+// import { useSingleCallResult } from 'state/multicall/hooks'
 import { parseUnits } from 'ethers/lib/utils'
 import { useWeb3React } from '@web3-react/core'
 import { useGetMinBetAmount } from 'state/predictions/hooks'
 import { useTranslation } from 'contexts/Localization'
-import { ApprovalState, useApproveCallback } from 'hooks/useApproveCallback'
+// import { ApprovalState, useApproveCallback } from 'hooks/useApproveCallback'
 import { usePredictionsContract,useERC20 } from 'hooks/useContract'
-import useTokenBalance, { useGetBnbBalance } from 'hooks/useTokenBalance'
+import useTokenBalance from 'hooks/useTokenBalance' // Remove { useGetBnbBalance }
 import { getZaifAddress } from 'utils/addressHelpers'
-import { BIG_ZERO, ethersToBigNumber } from 'utils/bigNumber'
-import { usePriceZaifBusd } from 'state/farms/hooks'
-import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
+import { ethersToBigNumber } from 'utils/bigNumber' // Remove BIG_ZERO
+// import { usePriceZaifBusd } from 'state/farms/hooks'
+// import useApproveConfirmTransaction from 'hooks/useApproveConfirmTransaction'
 import useToast from 'hooks/useToast'
 import { BetPosition } from 'state/types'
 import { formatBigNumber, formatFixedNumber } from 'utils/formatBalance'
 import ConnectWalletButton from 'components/ConnectWalletButton'
-import ApproveConfirmButtons, { ButtonArrangement } from 'views/Profile/components/ApproveConfirmButtons'
+// import ApproveConfirmButtons, { ButtonArrangement } from 'views/Profile/components/ApproveConfirmButtons'
 import PositionTag from '../PositionTag'
 import useSwiper from '../../hooks/useSwiper'
 import FlexRow from '../FlexRow'
@@ -53,7 +52,7 @@ interface SetPositionCardProps {
 // /!\ TEMPORARY /!\
 // Set default gasPrice (6 gwei) when calling BetBull/BetBear before new contract is released fixing this 'issue'.
 // TODO: Remove on beta-v2 smart contract release.
-const gasPrice = parseUnits('10', 'gwei')
+// const gasPrice = parseUnits('10', 'gwei')
 const dust = parseUnits('0.01', 18)
 const percentShortcuts = [10, 25, 50, 75]
 
@@ -99,8 +98,8 @@ const SetPositionCard: React.FC<SetPositionCardProps> = ({ position, togglePosit
   const { balance: userBalance } = useTokenBalance(getZaifAddress())
   const { account } = useWeb3React()
   const { swiper } = useSwiper()
-  const { toastSuccess } = useToast()
-  const zaifPriceBusd = usePriceZaifBusd()
+  // const { toastSuccess } = useToast()
+  // const zaifPriceBusd = usePriceZaifBusd()
  // const { balance: bnbBalance } = useGetBnbBalance()
   const minBetAmount = useGetMinBetAmount()
   const zaifContract = getZaifAddress();

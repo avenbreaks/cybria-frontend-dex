@@ -2,7 +2,7 @@ import React from 'react'
 import { useWeb3React } from '@web3-react/core'
 import { useGetBetByEpoch, useGetCurrentEpoch } from 'state/predictions/hooks'
 import { BetPosition, NodeRound } from 'state/types'
-import { getMultiplierv2, getMultiplierv3 } from '../../helpers'
+import { getMultiplierv3 } from '../../helpers' // Remove getMultiplierv2
 import ExpiredRoundCard from './ExpiredRoundCard'
 import LiveRoundCard from './LiveRoundCard'
 import OpenRoundCard from './OpenRoundCard'

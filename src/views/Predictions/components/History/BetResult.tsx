@@ -4,7 +4,7 @@ import { Box, Flex, Heading, Text, PrizeIcon, BlockIcon, LinkExternal, useToolti
 import styled from 'styled-components'
 import { useAppDispatch } from 'state'
 import { useTranslation } from 'contexts/Localization'
-import { usePriceBnbBusd ,usePriceZaifBusd } from 'state/farms/hooks'
+import { usePriceZaifBusd } from 'state/farms/hooks' // Remove usePriceBnbBusd
 import { REWARD_RATE } from 'state/predictions/config'
 import { Bet, BetPosition } from 'state/types'
 import { fetchLedgerData, markBetHistoryAsCollected } from 'state/predictions'
@@ -37,7 +37,7 @@ const BetResult: React.FC<BetResultProps> = ({ bet, result }) => {
   const dispatch = useAppDispatch()
   const { account } = useWeb3React()
   const { isRefundable } = useIsRefundable(bet.round.epoch)
-  const bnbBusdPrice = usePriceBnbBusd()
+  // const bnbBusdPrice = usePriceBnbBusd()
   const zaifBusdPrice = usePriceZaifBusd()
   const canClaim = !bet.claimed && bet.position === bet.round.position
   const { targetRef, tooltip, tooltipVisible } = useTooltip(

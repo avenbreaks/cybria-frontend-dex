@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react'
-import { ethers } from 'ethers'
-import BigNumber from 'bignumber.js'
-import { formatUsdv2, formatBnbv2 } from 'views/Predictions/helpers'
+// import { ethers } from 'ethers' disable
+// import BigNumber from 'bignumber.js'
+import { formatBnbv2 } from 'views/Predictions/helpers' // remove formatUsdv2
 import { useWeb3React } from '@web3-react/core'
 import { getReferralContract } from 'utils/contractHelpers'
-import { BIG_ZERO } from 'utils/bigNumber'
-import { simpleRpcProvider } from 'utils/providers'
+// import { BIG_ZERO } from 'utils/bigNumber'
+// import { simpleRpcProvider } from 'utils/providers'
 import useRefresh from './useRefresh'
-import useLastUpdated from './useLastUpdated'
+// import useLastUpdated from './useLastUpdated'
 
-type UseReferralState = {
-  referrerCount: number
-  commission: BigNumber
-}
+// type UseReferralState = {
+//   referrerCount: number
+//   commission: BigNumber
+// }
 
 export enum FetchStatus {
   NOT_FETCHED = 'not-fetched',

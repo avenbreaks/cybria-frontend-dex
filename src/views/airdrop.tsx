@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unknown-property */
 import React from 'react'
 import styled from 'styled-components'
-import { Button, Heading, Text, LogoIcon } from '@zaigar-finance/uikit'
+import { Heading, LogoIcon } from '@zaigar-finance/uikit' // Remove Button,Text
 import Page from 'components/Layout/Page'
-import { useTranslation } from 'contexts/Localization'
+// import { useTranslation } from 'contexts/Localization'
 
 const StyledNotFound = styled.div`
   align-items: center;
@@ -15,7 +15,7 @@ const StyledNotFound = styled.div`
 `
 
 const Airdrop = () => {
-  const { t } = useTranslation()
+  // const { t } = useTranslation()
 
   return (  
     <Page>

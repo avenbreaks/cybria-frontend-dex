@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useCountUp } from 'react-countup'
 import styled from 'styled-components'
-import { usePredictionsContract,useERC20 } from 'hooks/useContract'
-import { PredictionsContract } from 'utils/types'
+import { usePredictionsContract } from 'hooks/useContract' // Remove useERC20
+// import { PredictionsContract } from 'utils/types'
 import { ethersToBigNumber } from 'utils/bigNumber'
 import { BnbUsdtPairTokenIcon, Box, Flex, PocketWatchIcon, Text, CrownIcon } from '@zaigar-finance/uikit'
 import { ROUND_BUFFER } from 'state/predictions/config'

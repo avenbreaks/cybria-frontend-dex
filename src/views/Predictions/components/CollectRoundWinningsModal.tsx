@@ -8,19 +8,18 @@ import {
   InjectedModalProps,
   Button,
   AutoRenewIcon,
-  TrophyGoldIcon,
   Text,
   Flex,
   Heading,
   Box,
   LinkExternal,
   ModalCloseButton,
-} from '@zaigar-finance/uikit'
+} from '@zaigar-finance/uikit' // Remove TrophyGoldIcon
 import Cookies from 'js-cookie'
 import { useWeb3React } from '@web3-react/core'
 import { getBscScanLink } from 'utils'
 import { useAppDispatch } from 'state'
-import { usePriceBnbBusd , usePriceZaifBusd } from 'state/farms/hooks'
+import { usePriceZaifBusd } from 'state/farms/hooks'
 import { fetchClaimableStatuses } from 'state/predictions'
 import { useTranslation } from 'contexts/Localization'
 import useToast from 'hooks/useToast'
@@ -59,7 +58,7 @@ const CollectRoundWinningsModal: React.FC<CollectRoundWinningsModalProps> = ({
   const { toastSuccess, toastError } = useToast()
   const predictionsContract = usePredictionsContract()
   const referralContract = useReferral()
-  const bnbBusdPrice = usePriceBnbBusd()
+  // const bnbBusdPrice = usePriceBnbBusd()
   const zaifBusdPrice = usePriceZaifBusd()
   const dispatch = useAppDispatch()
  

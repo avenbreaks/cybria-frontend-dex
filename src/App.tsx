@@ -1,5 +1,5 @@
 import React, { lazy } from 'react'
-import { Router, Redirect, Route, Switch, Link } from 'react-router-dom'
+import { Router, Redirect, Route, Switch } from 'react-router-dom' // add plugin Link
 import { ResetCSS } from '@zaigar-finance/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'

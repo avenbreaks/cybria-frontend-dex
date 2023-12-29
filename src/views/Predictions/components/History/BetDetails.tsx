@@ -7,7 +7,7 @@ import { Flex, Text, Link, Heading } from '@zaigar-finance/uikit'
 import { Result } from 'state/predictions/helpers'
 import { PayoutRow, RoundResultHistory } from '../RoundResult'
 import BetResult from './BetResult'
-import { getMultiplier, getMultiplierv4 } from './helpers'
+import { getMultiplierv4 } from './helpers' // Remove getMultiplier
 
 interface BetDetailsProps {
   bet: Bet

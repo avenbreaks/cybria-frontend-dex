@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Text, Flex, Button, ArrowForwardIcon, Link, Heading } from '@zaigar-finance/uikit'
+import { Text, Flex, ArrowForwardIcon, Link, Heading } from '@zaigar-finance/uikit' // Remove Button
 import { useTranslation } from 'contexts/Localization'
 
 const StyledSubheading = styled(Heading)`
@@ -51,28 +51,28 @@ const LeftWrapper = styled(Flex)`
   }
 `
 
-const RightWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  right: 24px;
-  opacity: 0.8;
+// const RightWrapper = styled.div`
+//   position: absolute;
+//   top: 0;
+//   right: 24px;
+//   opacity: 0.8;
 
-  & img {
-    height: 200px;
-  }
+//   & img {
+//     height: 200px;
+//   }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    opacity: 1;
+//   ${({ theme }) => theme.mediaQueries.sm} {
+//     position: relative;
+//     display: flex;
+//     align-items: center;
+//     justify-content: flex-end;
+//     opacity: 1;
 
-    & img {
-      height: 90%;
-    }
-  }
-`
+//     & img {
+//       height: 90%;
+//     }
+//   }
+// `
 
 const NftBanner = () => {
   const { t } = useTranslation()

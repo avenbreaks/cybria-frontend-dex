@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react' // Remove useState, useCallback
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button, useModal } from '@zaigar-finance/uikit'
+import { Heading, Card, CardBody, Button } from '@zaigar-finance/uikit' // Remove useModal
 import { useTranslation } from 'contexts/Localization'
 
 
@@ -18,18 +18,18 @@ const CardImage = styled.img`
   margin-bottom: 16px;
 `
 
-const Label = styled.div`
-  color: ${({ theme }) => theme.colors.textSubtle};
-  font-size: 14px;
-`
+// const Label = styled.div`
+//   color: ${({ theme }) => theme.colors.textSubtle};
+//   font-size: 14px;
+// `
 
-const Actions = styled.div`
-  display: flex;
-  margin-top: 24px;
-  button {
-    flex: 1 0 50%;
-  }
-`
+// const Actions = styled.div`
+//   display: flex;
+//   margin-top: 24px;
+//   button {
+//     flex: 1 0 50%;
+//   }
+// `
 
 const RoadmapCard = () => {
 
@@ -46,7 +46,7 @@ const RoadmapCard = () => {
         </Block>
         <Button>
         <Block>
-        <a href="https://docs.zaigar.finance/roadmap">Detailed RoadMap here</a>
+        <a href="https://docs.zaigar.finance/roadmap">Detail Roadmap Cybria</a>
         </Block>
         </Button>
       </CardBody>

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@zaigar-finance/uikit'
+import { Text, BaseLayout } from '@zaigar-finance/uikit' // Remove Heading
 // import useI18n from 'hooks/useI18n'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/Layout/Page'

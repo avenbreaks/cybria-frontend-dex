@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Box, CopyIcon, Flex, FlexProps,Text} from '@zaigar-finance/uikit'
+import React from 'react' // Remove useState
+import { Box, Flex, FlexProps,Text} from '@zaigar-finance/uikit' // Remove CopyIcon
 import styled from 'styled-components'
 
 interface ReferralCountProps extends FlexProps {

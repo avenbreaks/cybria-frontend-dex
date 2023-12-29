@@ -20,17 +20,17 @@ const flyingAnim = () => keyframes`
   }  
 `
 
-const fading = () => keyframes`
-  from {
-    opacity: 0.9;
-  }
-  50% {
-    opacity: 0.1;
-  }
-  to {
-    opacity: 0.9;
-  }  
-`
+// const fading = () => keyframes`
+//   from {
+//     opacity: 0.9;
+//   }
+//   50% {
+//     opacity: 0.1;
+//   }
+//   to {
+//     opacity: 0.9;
+//   }  
+// `
 
 const BgWrapper = styled.div`
   z-index: -1;
@@ -53,37 +53,37 @@ const LogoWrapper = styled.div`
   animation: ${flyingAnim} 3.5s ease-in-out infinite;
 `
 
-const ArrowsWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
+// const ArrowsWrapper = styled.div`
+//   position: absolute;
+//   top: 0;
+//   left: 0;
 
-  & :nth-child(2) {
-    animation: ${fading} 3.5s ease-in-out infinite;
-    animation-delay: 1s;
-  }
+//   & :nth-child(2) {
+//     animation: ${fading} 3.5s ease-in-out infinite;
+//     animation-delay: 1s;
+//   }
 
-  & :nth-child(3) {
-    animation: ${fading} 5s ease-in-out infinite;
-    animation-delay: 0.66s;
-  }
+//   & :nth-child(3) {
+//     animation: ${fading} 5s ease-in-out infinite;
+//     animation-delay: 0.66s;
+//   }
 
-  & :nth-child(4) {
-    animation: ${fading} 2.5s ease-in-out infinite;
-    animation-delay: 0.33s;
-  }
-`
+//   & :nth-child(4) {
+//     animation: ${fading} 2.5s ease-in-out infinite;
+//     animation-delay: 0.33s;
+//   }
+// `
 
 const imagePath = '/images/home/logo/'
 const imageSrc = 'logo'
 
-const arrowsImage: CompositeImageProps = {
-  path: '/images/home/logo/',
-  attributes: [
-    { src: 'arrow-green', alt: '3D Arrow' },
-    { src: 'arrow-red', alt: '3D Arrow' },
-  ],
-}
+// const arrowsImage: CompositeImageProps = {
+//   path: '/images/home/logo/',
+//   attributes: [
+//     { src: 'arrow-green', alt: '3D Arrow' },
+//     { src: 'arrow-red', alt: '3D Arrow' },
+//   ],
+// }
 
 const Hero = () => {
   const { t } = useTranslation()

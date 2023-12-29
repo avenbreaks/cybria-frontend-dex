@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from 'react'
+import React from 'react' // Remove useState, useCallback
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Button, useModal } from '@zaigar-finance/uikit'
+import { Heading, Card, CardBody } from '@zaigar-finance/uikit' // Remove Button, useModal
 import { useTranslation } from 'contexts/Localization'
 
 const StyledTeamCard = styled(Card)`

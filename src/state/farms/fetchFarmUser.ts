@@ -5,7 +5,7 @@ import multicall from 'utils/multicall'
 import { getAddress, getMasterChefAddress } from 'utils/addressHelpers'
 import { FarmConfig } from 'config/constants/types'
 
-const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
+// const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
 export const fetchFarmUserAllowances = async (account: string, farmsToFetch: FarmConfig[]) => {
   const masterChefAddress = getMasterChefAddress()

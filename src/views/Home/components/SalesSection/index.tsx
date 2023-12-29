@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Text, Button, Link, ButtonMenu } from '@zaigar-finance/uikit'
+import { Flex, Text, Button, Link } from '@zaigar-finance/uikit' // Remove ButtonMenu
 import { useTranslation } from 'contexts/Localization'
 import CompositeImage, { CompositeImageProps } from '../CompositeImage'
 import PurpleWordHeading from '../PurpleWordHeading'
