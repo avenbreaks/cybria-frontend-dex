@@ -14,3 +14,18 @@ Run frontend dex:
 ```bash
 npm run start
 ```
+
+SDK Build :
+```bash
+
+```
+
+Core Contract :
+```bash
+https://github.com/zaigar-finance/core-contracts
+```
+
+Uikit Template :
+```bash
+https://github.com/zaigar-finance/zai-uikit
+```
